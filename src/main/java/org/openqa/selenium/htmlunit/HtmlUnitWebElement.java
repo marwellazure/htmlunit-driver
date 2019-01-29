@@ -317,6 +317,10 @@ public class HtmlUnitWebElement implements WrapsDriver,
       }
 
       String link = element.getAttribute(name).trim();
+      if (link.isEmpty()) {
+        return null;
+      }
+        
       HtmlPage page = (HtmlPage) element.getPage();
       try {
         return page.getFullyQualifiedUrl(link).toString();
